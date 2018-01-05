@@ -1,43 +1,43 @@
 // set link
 
-const parent = document.querySelectorAll('.menu-item-has-children > a');
+const linkItemHasChildren = document.querySelectorAll('.menu-item-has-children > a');
 
-for (let i = 0; i < parent.length; i++) {
-	parent[i].classList.add('dropdown-toggle');
-	parent[i].id = "dropdown" + i;
-	parent[i].setAttribute('data-toggle', 'dropdown');
-	parent[i].setAttribute('aria-haspopup', 'true');
-	parent[i].setAttribute('aria-expanded', 'false');
+for (let i = 0; i < linkItemHasChildren.length; i++) {
+	linkItemHasChildren[i].classList.add('dropdown-toggle');
+	linkItemHasChildren[i].id = "dropdown" + i;
+	linkItemHasChildren[i].setAttribute('data-toggle', 'dropdown');
+	linkItemHasChildren[i].setAttribute('aria-haspopup', 'true');
+	linkItemHasChildren[i].setAttribute('aria-expanded', 'false');
 }
 
 // set dropdown list
 
-const childs = document.querySelectorAll('.sub-menu > li > a');
+const linkSubMenu = document.querySelectorAll('.sub-menu > li > a');
 
-for (let i = 0; i < childs.length; i++) {
-	childs[i].classList.add('dropdown-item');	
+for (let i = 0; i < linkSubMenu.length; i++) {
+	linkSubMenu[i].classList.add('dropdown-item');	
 }
 
-const ulli = document.querySelectorAll('.sub-menu');
-const par = document.querySelectorAll('.menu-item-has-children');
+const subMenu = document.querySelectorAll('.sub-menu');
+const temHasChildren = document.querySelectorAll('.menu-item-has-children');
 let c = 0;
-for (let i = 0; i < ulli.length; i++) {
+for (let i = 0; i < subMenu.length; i++) {
 	let div = document.createElement("div");
-	par[i].appendChild(div);
+	temHasChildren[i].appendChild(div);
 	div.classList.add('dropdown-menu');
 	div.setAttribute('aria-labelledby', 'dropdown' + i);
 
 	//const child = document.querySelectorAll('.sub-menu > li > a');
-	for (let k = 0; k < ulli[i].children.length; k++) {
+	for (let k = 0; k < subMenu[i].children.length; k++) {
 		//console.log('номер ' + i)
-		//console.log(childs[c]);
-		div.appendChild(childs[c]);
+		//console.log(linkSubMenu[c]);
+		div.appendChild(linkSubMenu[c]);
 		c++;
 	}
 
-	ulli[i].remove();
+	subMenu[i].remove();
 
-	//let parent = ulli[i].parentNode;
-	//div.appendChild(ulli[i]);
-	//parent.insertBefore(div, ulli[i]);
+	//let parent = subMenu[i].parentNode;
+	//div.appendChild(subMenu[i]);
+	//parent.insertBefore(div, subMenu[i]);
 }
